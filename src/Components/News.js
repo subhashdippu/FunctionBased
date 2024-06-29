@@ -14,19 +14,19 @@ const News = (props) => {
     };
 
     const updateNews = async () => {
-        // props.setProgress(0);
+        props.setProgress(0);
         let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=962f603a690c4815a41e19f530fe3656&page=${page}&pageSize=${props.pageSize}`;
         setLoading(true);
         let data = await fetch(url);
-        // props.setProgress(20);
+        props.setProgress(20);
         let parsedData = await data.json();
-        // props.setProgress(60);
+        props.setProgress(60);
         console.log(parsedData);
         setArticles(parsedData.articles);
         setTotalResults(parsedData.totalResults);
         setLoading(false);
 
-        // props.setProgress(100);
+        props.setProgress(100);
     };
 
     useEffect(() => {
